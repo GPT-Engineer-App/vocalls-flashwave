@@ -1,11 +1,12 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React from 'react';
+import { createContext, useState, useEffect } from 'react';
 import { useToast } from "@/components/ui/use-toast";
 
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const { toast } = useToast();
+  const toast = useToast();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
