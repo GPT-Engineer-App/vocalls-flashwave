@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { navItems } from "./nav-items";
 import AuthProvider from "./components/Auth/AuthProvider";
 import ProtectedRoute from "./components/Auth/ProtectedRoute";
+import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
 
@@ -14,21 +15,23 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <BrowserRouter>
-          <Routes>
-            {navItems.map(({ to, page, protected: isProtected }) => (
-              <Route
-                key={to}
-                path={to}
-                element={
-                  isProtected ? (
-                    <ProtectedRoute>{page}</ProtectedRoute>
-                  ) : (
-                    page
-                  )
-                }
-              />
-            ))}
-          </Routes>
+          <Layout>
+            <Routes>
+              {navItems.map(({ to, page, protected: isProtected }) => (
+                <Route
+                  key={to}
+                  path={to}
+                  element={
+                    isProtected ? (
+                      <ProtectedRoute>{page}</ProtectedRoute>
+                    ) : (
+                      page
+                    )
+                  }
+                />
+              ))}
+            </Routes>
+          </Layout>
         </BrowserRouter>
       </TooltipProvider>
     </AuthProvider>
