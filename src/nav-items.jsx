@@ -1,4 +1,4 @@
-import { Home, Phone, UserPlus, LogIn } from "lucide-react";
+import { Home as HomeIcon, Phone, UserPlus, LogIn } from "lucide-react";
 import Home from "./pages/Home";
 import CallPage from "./pages/CallPage";
 import Register from "./pages/Register";
@@ -8,7 +8,7 @@ export const navItems = [
   {
     title: "Home",
     to: "/",
-    icon: <Home className="h-4 w-4" />,
+    icon: <HomeIcon className="h-4 w-4" />,
     page: <Home />,
     protected: true,
   },
