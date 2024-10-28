@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { navItems } from "./nav-items";
 import AuthProvider from "./components/Auth/AuthProvider";
 import ProtectedRoute from "./components/Auth/ProtectedRoute";
@@ -30,6 +30,7 @@ const App = () => (
                   }
                 />
               ))}
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Layout>
         </BrowserRouter>
